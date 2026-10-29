@@ -131,3 +131,5 @@ The following prompts i used during the development of this project:
 2. **Backend-Frontend Integration:** Explain step by step how to connect the backend to the frontend, indicating which files need to be created or modified, what code needs to be implemented, and how to verify that communication between both components works correctly.
 
 3. **Frontend Development with React:** Remind me of the step-by-step process for developing a web application interface using React and TypeScript, from the initial project structure to creating components, implementing the design, and integrating the frontend with the backend.
+
+4. **Code Comments**: Help me improve the code comments to make them clearer, easier to understand, and more useful by explaining the purpose of functions, code blocks, and the most important parts of the implementation.
