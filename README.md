@@ -1,4 +1,4 @@
-# Calculator
+# Calculator -  Ana Gabriela Argüello
 
 Full-stack calculator: a **React + TypeScript** frontend that calls a **Go** REST microservice to do the math.
 
