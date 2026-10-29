@@ -18,14 +18,7 @@ calculadora/
         └── utils/           Operation list + input validation
 ```
 
-## Requirements
-
-- Go 1.27+
-- Node.js 18+ and npm
-
 ## Setup and running
-
-You need two terminals, one for each service.
 
 **1. Backend** (runs on http://localhost:8080)
 
@@ -44,11 +37,6 @@ npm run dev
 
 Open http://localhost:5173 in the browser.
 
-In development, Vite proxies every `/api` request to `localhost:8080`, so you don't need to configure a URL or deal with CORS. To point the frontend at a different backend (for example, in production), set `VITE_API_URL` before building:
-
-```bash
-VITE_API_URL=https://my-api.example.com/api/calculate npm run build
-```
 
 ## API
 
@@ -123,14 +111,6 @@ npm run typecheck   # TypeScript check
 
 The HTML reports are in `backend/coverage.html` and `frontend/coverage/index.html`.
 
-What's tested:
-
-- **Go math logic**: every operation plus the error cases (division by zero, negative sqrt).
-- **Go HTTP handler** (`httptest`): success response and JSON content type; 400 for malformed JSON, wrong types, math errors and unknown operations; 405 for wrong methods; CORS preflight.
-- **Frontend validation**: valid numbers, empty/non-numeric input, division by zero, negative sqrt, unknown operation.
-- **Frontend API client**: request body, backend error messages, non-JSON responses, server down.
-- **Calculator component**: shows results, blocks invalid input before calling the API, hides the second input for sqrt, shows backend errors, the clear button.
-
 ## Design decisions
 
 - **Math logic is separate from HTTP.** `Calcular` in `calculator.go` is a pure function with no HTTP dependency, so it can be tested with a simple table test. `main.go` only decodes the request, calls `Calcular` and encodes the response.
@@ -141,3 +121,13 @@ What's tested:
 - **Operations defined as data.** The buttons are generated from the `OPERATIONS` list, so adding an operation in the UI is one line there.
 - **Inputs stored as strings.** This lets the user type partial values like `-` or `2.` and keeps validation in one place.
 - **Responsive and accessible.** A single card layout that fills the screen on mobile (max 400px on desktop), `inputMode="decimal"` for the numeric keyboard on phones, labeled inputs, `aria-pressed` on the operation buttons and `aria-live` on the result.
+
+## Prompts Used
+
+The following prompts i used during the development of this project:
+
+1. **README Documentation:** Help me write and improve the project's README, using the existing content as a reference. Preserve the current structure and technical information while making the documentation clearer, better organized, and easier to understand.
+
+2. **Backend-Frontend Integration:** Explain step by step how to connect the backend to the frontend, indicating which files need to be created or modified, what code needs to be implemented, and how to verify that communication between both components works correctly.
+
+3. **Frontend Development with React:** Remind me of the step-by-step process for developing a web application interface using React and TypeScript, from the initial project structure to creating components, implementing the design, and integrating the frontend with the backend.
